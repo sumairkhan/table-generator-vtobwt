@@ -1,0 +1,65 @@
+.source-container {
+  display: grid;
+  grid-template-columns: 43px auto 43px;
+
+  &> * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 0;
+    display: block;
+
+    table {
+      table-layout: fixed;
+      margin: 0;
+
+      td {
+        width: 100px;
+
+        .field:not(:last-child) {
+            margin-bottom: 0.2rem;
+        }
+      }
+    }
+  }
+
+  .remove-row-container {
+    flex-direction: column;
+    padding-top: 43px;
+
+    div {
+      height: 75.3333px;
+      width: 100%;
+      padding: 0.75em 0.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        height: 100%;
+      }
+    }
+  }
+
+  .add-column-container {
+    padding-top: 43px;
+
+    div {
+      height: 100%;
+      padding: 0.75em 0.5em;
+
+      button {
+        height: 100%;
+      }
+    }
+  }
+
+  .add-row-container div {
+    padding: 0.5em 0.75em;
+    width: 100%;
+  }
+}

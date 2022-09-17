@@ -1,0 +1,72 @@
+<section class="section">
+	<div class="container">
+		<div class="source-container">
+			<div class="remove-row-container has-background-light">
+				<div *ngFor="let row of sourceTable; index as rowIndex">
+					<button class="button is-primary is-small" [disabled]="rowIndex === 0 && sourceTable.length <= 1" (click)="removeRow(rowIndex)">
+            <span class="icon is-small">
+              <fa-icon [icon]="faMinusCircle"></fa-icon>
+            </span>
+          </button>
+				</div>
+			</div>
+			<div class="table-container">
+
+				<table class="table is-fullwidth">
+					<tbody>
+						<tr class="has-background-light">
+							<td *ngFor="let cell of sourceTable[0]; index as colIndex">
+								<button class="button is-primary is-small is-fullwidth" [disabled]="colIndex === 0 && sourceTable[0].length <= 1" (click)="removeCol(colIndex)">
+                  <span class="icon is-small">
+                    <fa-icon [icon]="faMinusCircle"></fa-icon>
+                  </span>
+                </button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table is-bordered is-hoverable is-fullwidth is-striped">
+					<tbody>
+						<tr *ngFor="let row of sourceTable">
+							<td *ngFor="let cell of row">
+								<div class="field">
+									<input type="text" class="input is-small is-shadowless" [class.is-primary]="cell.label1" [(ngModel)]="cell.label1" (keyup)="generateTable(sourceTable)">
+								</div>
+								<div class="field">
+									<input type="text" class="input is-small is-shadowless" [class.is-primary]="cell.label2" [(ngModel)]="cell.label2" (keyup)="generateTable(sourceTable)">
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<div class="add-column-container has-background-light">
+				<div>
+					<button class="button is-primary is-small" (click)="addColumn()">
+            <span class="icon is-small">
+              <fa-icon [icon]="faPlusCircle"></fa-icon>
+            </span>
+          </button>
+				</div>
+			</div>
+			<div class="has-background-light"></div>
+			<div class="add-row-container has-background-light">
+				<div>
+					<button class="button is-primary is-small is-fullwidth" (click)="addRow()">
+            <span class="icon is-small">
+              <fa-icon [icon]="faPlusCircle"></fa-icon>
+            </span>
+          </button>
+				</div>
+			</div>
+			<div class="has-background-light"></div>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="container">
+		<pre>{{ formatedTable }}</pre>
+	</div>
+</section>
